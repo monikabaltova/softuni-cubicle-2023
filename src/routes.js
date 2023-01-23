@@ -1,13 +1,10 @@
-const cubeController = require('./controllers/cubController');
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.render('index');
-});
+const cubeController = require('./controllers/cubController');
+const homeController = require('./controllers/homeController');
 
-router.get('/about',(req, res) => {
-    res.render('about');
-});
+router.get('/', homeController.getHomePage);
+router.get('/about', homeController.getAboutPage);
 
 //router.get('/create', (req, res) => {
 //    res.render('create');
