@@ -21,10 +21,10 @@ const cubeSchema = new Schema({
         max: 6,
         min: 1,
     },
-    accessories: {
-        type: String,
-        required: true,
-    }
+    //accessories: {
+      ///  type: String,
+     //   required: true,
+  //  }
 });
 
 const Cube = model('Cube', cubeSchema);
