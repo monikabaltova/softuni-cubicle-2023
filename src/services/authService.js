@@ -11,10 +11,17 @@ exports.register = async (username, password) => {
 exports.login = async (username, password) => {
     const user = await this.getUserByUsername(username);
 
+    if (!user) {
+        throw {
+            message:'Invalid username!',
+            data:  user
+        };
+    }
+
     const isValid = await user.validatePassword(password);
 
     if (!user || !isValid) {
-        throw 'Invalid username or password!';
+        throw 'Invalid password!';
     }
 
     const payload = { _id: user._id, username: user.username };
